@@ -1,3 +1,28 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css' )}}">  
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+</head>
+
 <body>
-    <p>Hello World</p>
+    <h1 class='headtitle'>SHOR.TY</h1>
+    <div class='formarea'>
+
+        <form method="POST">
+            {{ form.csrf_token }}
+            <div class="form-field">{{ form.url }}</div>
+            {{ form.submit }}
+        </form>
+
+    </div>
+
+
+    {% with messages = get_flashed_messages() %}
+    {% for message in messages %}
+    <div class='product'>YOUR SHORTY IS
+        <div class="message">{{ message }}</div>
+    </div>
+    {% endfor %}
+    {% endwith %}
+
 </body>
